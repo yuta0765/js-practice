@@ -9,8 +9,20 @@
  */
 
 function bubbleSort (array) {
-  return array
+  for(let outer =0; outer < array.length -1; outer++) {
+    for(let i = array.length-1; i > outer; i--) {
+      if(array[i] < array[i-1]) {
+        let tmp = array[i];
+        array[i] = array[i-1];
+        array[i-1] = tmp;
+      }
+    }
+  }
+
+  return
 }
+
+//バブルソートとは隣接するデータの大小を比較、必要に応じて入れ替えることで全体を整列させる
 
 /**
  *  2.2.2 挿入ソート
@@ -26,6 +38,9 @@ function insertSort (array) {
   return array
 }
 
+//挿入ソートとは整列済みと未整列を分け、未整列の側から一つずつ整列済みの適切な位置に挿入していく
+
+
 /**
  *  2.2.3 マージソート
  *
@@ -39,6 +54,9 @@ function insertSort (array) {
 function mergeSort (array) {
   return array
 }
+
+//マージソートとは
+
 
 
 /**
@@ -55,3 +73,4 @@ function quickSort (array, start = 0, end = (array.length -1)) {
   return array
 };
 
+//クイックソートとは

@@ -12,8 +12,15 @@
  */
 
 function linearSearch (array, target) {
-  return -1
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
 }
+
 
 /**
  *  2.3.2 バイナリサーチ
@@ -26,6 +33,21 @@ function linearSearch (array, target) {
  */
 
 function binarySearch (array, target) {
-  return -1
+  let head = 0; //先頭
+  let tail =array.length;
+
+  while(head <= tail) {
+    let center = Math.floor((head + tail) / 2); //中央値計算
+    if (array[center] === target) {
+      return target;
+    } else if (array[center] < target) {
+      head = center + 1;
+    } else {
+      tail = center -1;
+    }
+  }
+
+  return -1;
 }
 
+//Math.floorで小数点以下切り捨てる

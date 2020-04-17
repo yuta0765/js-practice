@@ -23,6 +23,17 @@
  */
 
 function fizzBuzz () {
+  for(let i = 1; i <= 100; i++) {
+    if (i % 3 === 0) {
+      console.log(i + "Fizz");
+    } else if (i % 5 === 0) {
+      console.log(i + "Buzz");
+    } else if (i % 3 === 0 || i % 5 === 0) {
+      console.log(i + "FizzBuzz");
+    } else {
+      console.log(i);
+    }
+  }
 }
 
 /**
@@ -38,8 +49,14 @@ function fizzBuzz () {
  */
 
 function sum(array) {
-  return
+  let sum = 0; //合計値を入れる変数
+  for (let i =0; i<array.length; i++) {
+    sum += array[i];
+  }
+
+  return sum;
 }
+
 
 /**
  *  2.1.3 配列の最大値と最小値
@@ -47,14 +64,19 @@ function sum(array) {
  *  配列の最大値と最小値を出力する関数を実装してください。
  *
  *  example:
- *    [1, 3, 7, 9] => max: 20, min: 1
+ *    [1, 3, 7, 9] => max: 9, min: 1
  *    [2, 5, 3, 6, 10, -1] => max: 10, min: -1
  *    [1] => max: 1, min: 1
  *
  */
 
 function minMax(array) {
+  let max = Math.max.apply(null, array);
+  let min = Math.min.apply(null, array);
+
+  console.log(`max: ${max}, min:${min}`);
 }
+
 
 /**
  *  2.1.4 文字列の反転
@@ -68,8 +90,10 @@ function minMax(array) {
  *
  */
 function reverse(str) {
-  return
+  return str.split("").reverse().join("");
 }
+
+//splitで文字列を一つ一つ分割　→　reverse逆に並べる　→　joinで一緒にする
 
 /**
  *  2.1.5 文字列のローテート
@@ -83,9 +107,12 @@ function reverse(str) {
  *
  */
 function rotate(str, num) {
-  return
+  return 
 }
 
+//第2引数
+
+rotate(yuta, 1);
 /**
  *  2.1.6 文字列のカウント
  *
@@ -98,8 +125,11 @@ function rotate(str, num) {
  *
  */
 function countStr(s1, s2) {
-  return
+  let count = (s1.match(new RegExp(s2, "g" ) ) || [] ).length;
+  return count;
 }
+
+
 
 /**
  *  2.1.7 素数
@@ -116,8 +146,14 @@ function countStr(s1, s2) {
  *
  */
 function isPrime(num) {
-  return
+  if (num === 2) return true;
+  for (let i = 2; i < num; i++) {
+    if(num % 1 === 0) return false;
+  }
+  return true;
 }
+
+isPrime(1);
 
 /**
  *  2.1.8 配列の4と次の数字を抜いた合計
@@ -135,5 +171,14 @@ function isPrime(num) {
  *
  */
 function sumWithout4andNext(array) {
-  return
+  let sum = 0; //合計値を入れる変数
+  for (let i =0; i<array.length; i++) {
+    if (array[i] === 4) {
+      deleate + array[i + 1];
+    }
+    sum += array[i];
+  }
+
+  return sum;
 }
+sumWithout4andNext([1,2,3,4]);

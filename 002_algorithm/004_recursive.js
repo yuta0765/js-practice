@@ -11,8 +11,13 @@
  */
 
 function sumSequence (n, sum = 0) {
-  return n
+  if (n <= 0) {
+    return 0
+  }
+  return n + sumSequence(n-1);
 }
+
+sumSequence(2);
 
 /**
  *  2.4.2 フィボナッチ数
